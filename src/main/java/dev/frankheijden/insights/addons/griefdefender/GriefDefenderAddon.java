@@ -1,4 +1,4 @@
-package dev.frankheijden.insights.addons.griefprevention;
+package dev.frankheijden.insights.addons.griefdefender;
 
 import dev.frankheijden.insights.api.InsightsPlugin;
 import dev.frankheijden.insights.api.addons.InsightsAddon;
@@ -15,7 +15,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import java.util.Optional;
 
-public class GriefPreventionAddon implements InsightsAddon, Listener {
+public class GriefDefenderAddon implements InsightsAddon, Listener {
 
     public String getId(Claim claim) {
         return getPluginName() + "@" + claim.getID();
@@ -36,7 +36,7 @@ public class GriefPreventionAddon implements InsightsAddon, Listener {
 
     @Override
     public String getPluginName() {
-        return "GriefPrevention";
+        return "GriefDefender";
     }
 
     @Override
