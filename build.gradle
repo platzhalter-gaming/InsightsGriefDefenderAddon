@@ -5,7 +5,7 @@ plugins {
 
 String packagePath = 'moe.galexrt.insights.addons.griefdefender'
 group = packagePath
-version = '1.0.0'
+version = '1.0.1'
 description = 'GriefDefenderAddon'
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
 
