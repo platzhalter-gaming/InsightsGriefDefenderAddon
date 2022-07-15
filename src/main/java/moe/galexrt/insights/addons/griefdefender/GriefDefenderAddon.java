@@ -48,7 +48,7 @@ public class GriefDefenderAddon implements InsightsAddon, Listener {
 
         return Optional.of(new SimpleCuboidRegion(
                 min.getWorld(),
-                new Vector3(min.getBlockX(), 0, min.getBlockZ()),
+                new Vector3(min.getBlockX(), max.getWorld().getMinHeight(), min.getBlockZ()),
                 new Vector3(max.getBlockX(), max.getWorld().getMaxHeight() - 1, max.getBlockZ()),
                 getPluginName(),
                 getId(claim)));
@@ -78,7 +78,6 @@ public class GriefDefenderAddon implements InsightsAddon, Listener {
     @Subscribe
     public void onChangeClaimEvent(ChangeClaimEvent event) {
         if (event.cancelled()) return;
-        System.out.println("CHANGE CLAIM EVENT");
 
         deleteClaimCache(event.getClaim());
     }
@@ -86,7 +85,6 @@ public class GriefDefenderAddon implements InsightsAddon, Listener {
     @Subscribe
     public void onRemoveClaimEvent(RemoveClaimEvent event) {
         if (event.cancelled()) return;
-        System.out.println("REMOVE CLAIM EVENT");
 
         deleteClaimCache(event.getClaim());
     }
