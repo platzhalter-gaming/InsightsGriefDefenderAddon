@@ -5,13 +5,14 @@ import dev.frankheijden.insights.api.addons.InsightsAddon;
 import dev.frankheijden.insights.api.addons.Region;
 import dev.frankheijden.insights.api.addons.SimpleCuboidRegion;
 import dev.frankheijden.insights.api.objects.math.Vector3;
-import net.kyori.event.method.annotation.Subscribe;
 
-import com.flowpowered.math.vector.Vector3i;
+import com.google.common.eventbus.Subscribe;
 import com.griefdefender.api.GriefDefender;
 import com.griefdefender.api.claim.Claim;
 import com.griefdefender.api.event.ChangeClaimEvent;
 import com.griefdefender.api.event.RemoveClaimEvent;
+import com.griefdefender.lib.flowpowered.math.vector.Vector3i;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -27,12 +28,15 @@ public class GriefDefenderAddon implements InsightsAddon, Listener {
     public GriefDefenderAddon() {
         // Register our GriefDefender events listeners just when the server started
         Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("Insights"), () -> {
-            GriefDefender.getEventManager().register(this);
+            GriefDefender.getEventManager().getBus().subscribe(ChangeClaimEvent.class, this::onChangeClaimEvent);
+            GriefDefender.getEventManager().getBus().subscribe(RemoveClaimEvent.class, this::onRemoveClaimEvent);
         });
     }
 
     public Optional<Region> adapt(Claim claim) {
         if (claim == null)
+            return Optional.empty();
+        if (claim.isWilderness())
             return Optional.empty();
 
         Vector3i minVector = claim.getLesserBoundaryCorner();
@@ -74,6 +78,7 @@ public class GriefDefenderAddon implements InsightsAddon, Listener {
     @Subscribe
     public void onChangeClaimEvent(ChangeClaimEvent event) {
         if (event.cancelled()) return;
+        System.out.println("CHANGE CLAIM EVENT");
 
         deleteClaimCache(event.getClaim());
     }
@@ -81,6 +86,7 @@ public class GriefDefenderAddon implements InsightsAddon, Listener {
     @Subscribe
     public void onRemoveClaimEvent(RemoveClaimEvent event) {
         if (event.cancelled()) return;
+        System.out.println("REMOVE CLAIM EVENT");
 
         deleteClaimCache(event.getClaim());
     }
