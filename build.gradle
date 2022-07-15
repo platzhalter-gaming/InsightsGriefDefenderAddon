@@ -23,6 +23,6 @@ dependencies {
 }
 
 blossom {
-    replaceTokenIn 'src/main/java/dev/frankheijden/insights/addons/griefdefender/GriefDefenderAddon.java'
+    replaceTokenIn 'src/main/java/moe/galexrt/insights/addons/griefdefender/GriefDefenderAddon.java'
     replaceToken '{version}', version
 }

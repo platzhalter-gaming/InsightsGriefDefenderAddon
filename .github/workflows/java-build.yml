@@ -15,5 +15,10 @@ jobs:
           java-version: "17"
           cache: "gradle"
 
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: release
+
       - name: Build with Gradle
-        run: gradle build
+        run: gradle build --no-daemon
