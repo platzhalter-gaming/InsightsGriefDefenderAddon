@@ -5,7 +5,7 @@ plugins {
 
 String packagePath = 'moe.galexrt.insights.addons.griefdefender'
 group = packagePath
-version = '1.0.2'
+version = '1.1.0'
 description = 'GriefDefenderAddon'
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
 
@@ -19,7 +19,7 @@ repositories {
 dependencies {
     compileOnly 'dev.frankheijden.insights:Insights:6.7.0-SNAPSHOT'
     compileOnly 'io.papermc.paper:paper-api:1.19-R0.1-SNAPSHOT'
-    compileOnly files('libs/griefdefender-bukkit-2.2.1.jar')
+    compileOnly files('libs/griefdefender-bukkit-2.2.4.jar')
 }
 
 blossom {
