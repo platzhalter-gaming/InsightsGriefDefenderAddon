@@ -6,8 +6,8 @@ Based on the [InsightsPlugin/GriefPreventionAddon](https://github.com/InsightsPl
 
 ## Requirements
 
-* GriefDefender release 2.2.1 for Bukkit
-* Paper 1.19 (build 58 and higher)
+* GriefDefender release 2.2.4 for Bukkit
+* Paper 1.19.2 (tested with build 196 and higher)
 
 ## Installation
 

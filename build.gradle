@@ -18,7 +18,7 @@ repositories {
 
 dependencies {
     compileOnly 'dev.frankheijden.insights:Insights:6.7.0-SNAPSHOT'
-    compileOnly 'io.papermc.paper:paper-api:1.19-R0.1-SNAPSHOT'
+    compileOnly 'io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT'
     compileOnly files('libs/griefdefender-bukkit-2.2.4.jar')
 }
 
